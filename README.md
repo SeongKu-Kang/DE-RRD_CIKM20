@@ -9,6 +9,7 @@ In the paper, we propose two distillation methods:
 
 2. Relaxed Ranking Distillation (RRD) that distills ranking information from the teacher's predictions.
 
+![oveview](https://user-images.githubusercontent.com/68782810/94357694-06ae0000-00d6-11eb-8ad4-9a389f99ee02.png)
 
 
 ## 2. Evaluation
