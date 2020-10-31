@@ -23,7 +23,7 @@ The protocol is as follows:
 	3. evaluate how well each method can rank the test item higher than these sampled negative items.
 
 ### 2.2. Metrics
-We provide three ranking metrics broadly adopted in the paper:  HR@N, NDCG@N, MRR@N.
+We provide three ranking metrics broadly adopted in the recent papers:  HR@N, NDCG@N, MRR@N.
 The hit ratio simply measures whether the test item is present in the top-N list, which is defined as follows:
 
 ![Large](https://latex.codecogs.com/svg.latex?\text{H}%20@%20N%20=%20\frac%20{%201%20}%20{%20|%20\mathcal%20{%20U%20}_{test}%20|%20}%20\sum%20_%20{%20u%20\in%20\mathcal%20{%20U}%20_{test}%20}%20\delta%20\left(%20p%20_%20{%20u%20}%20\leq%20\text%20{%20top%20}%20N%20\right) )
