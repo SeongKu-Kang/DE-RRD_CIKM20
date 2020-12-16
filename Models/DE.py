@@ -97,7 +97,7 @@ class BPR_DE(BPR):
 
 			selection_dist = torch.unsqueeze(selection_dist, 1)									# batch_size x 1 x num_experts
 
-		selection_result = selection_dist.repeat(1, self.teacher_dim, 1)						# batch_size x teacher_dims x num_experts
+		        selection_result = selection_dist.repeat(1, self.teacher_dim, 1)						# batch_size x teacher_dims x num_experts
 
 		expert_outputs = [experts[i](s).unsqueeze(-1) for i in range(self.num_experts)] 		# s -> t
 		expert_outputs = torch.cat(expert_outputs, -1)											# batch_size x teacher_dims x num_experts
