@@ -196,8 +196,6 @@ def LOO_Net_evaluate(model, gpu, test_dataset):
 
 		batch_score_mat = model.forward_multi_items(batch_users, batch_total_items)
 
-		model()
-
 		batch_score_mat = to_np(-batch_score_mat)
 		batch_total_items = to_np(batch_total_items)
 
