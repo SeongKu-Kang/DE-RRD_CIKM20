@@ -41,4 +41,4 @@ A. For DE, simply run "main_DE.py"
 
 B. For RRD, simply run "main_URRD.py"
 
-We also provide the training log and the learning curve of each methods. You can find them in /logs folder and the attached jupyter notebook.
+We also provide the training log and the learning curve of each method. You can find them in /logs folder and the attached jupyter notebook.
