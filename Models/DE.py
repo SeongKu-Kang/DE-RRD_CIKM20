@@ -84,25 +84,25 @@ class BPR_DE(BPR):
 			experts = self.item_experts
 			selection_net = self.item_selection_net
 
-		selection_dist = selection_net(t) 														# batch_size x num_experts
+		selection_dist = selection_net(t) 								# batch_size x num_experts
 
 		if self.num_experts == 1:
 			selection_result = 1.
 		else:
 			# Expert Selection
 			g = torch.distributions.Gumbel(0, 1).sample(selection_dist.size()).to(self.gpu)
-			eps = 1e-10 																		# for numerical stability
+			eps = 1e-10 										# for numerical stability
 			selection_dist = selection_dist + eps
 			selection_dist = self.sm((selection_dist.log() + g) / self.T)
 
-			selection_dist = torch.unsqueeze(selection_dist, 1)									# batch_size x 1 x num_experts
-			selection_result = selection_dist.repeat(1, self.teacher_dim, 1)					# batch_size x teacher_dims x num_experts
+			selection_dist = torch.unsqueeze(selection_dist, 1)					# batch_size x 1 x num_experts
+			selection_result = selection_dist.repeat(1, self.teacher_dim, 1)			# batch_size x teacher_dims x num_experts
 
 		expert_outputs = [experts[i](s).unsqueeze(-1) for i in range(self.num_experts)] 		# s -> t
-		expert_outputs = torch.cat(expert_outputs, -1)											# batch_size x teacher_dims x num_experts
+		expert_outputs = torch.cat(expert_outputs, -1)							# batch_size x teacher_dims x num_experts
 
-		expert_outputs = expert_outputs * selection_result										# batch_size x teacher_dims x num_experts
-		expert_outputs = expert_outputs.sum(2)													# batch_size x teacher_dims	
+		expert_outputs = expert_outputs * selection_result						# batch_size x teacher_dims x num_experts
+		expert_outputs = expert_outputs.sum(2)								# batch_size x teacher_dims	
 
 		DE_loss = ((t-expert_outputs) ** 2).sum(-1).sum() 
 
