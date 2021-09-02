@@ -43,6 +43,8 @@ B. For RRD, run "main_URRD.py"
 
 We also provide the training log and the learning curve of each method. You can find them in /logs folder and the attached jupyter notebook.
 
-## Other Work
+
+## 4. Other Work
 Please note that *Topology Distillation (KDD'21)*, which is a follow-up study of DE, is available in https://github.com/SeongKu-Kang/Topology_Distillation_KDD21.
+
 Also, *IR-RRD (Information Sciences'21)*, which is a follow-up study of RRD, is available in https://github.com/SeongKu-Kang/IR-RRD_INS21.
