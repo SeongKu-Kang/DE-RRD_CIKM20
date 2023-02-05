@@ -48,3 +48,7 @@ We also provide the training log and the learning curve of each method. You can 
 Please note that *Topology Distillation (KDD'21)*, which is a follow-up study of DE, is available in https://github.com/SeongKu-Kang/Topology_Distillation_KDD21.
 
 Also, *IR-RRD (Information Sciences'21)*, which is a follow-up study of RRD, is available in https://github.com/SeongKu-Kang/IR-RRD_INS21.
+
+
+## 5. Update
+We found that the sampling processes for top-ranked unobserved items are unnecessary, and removing the processes gave considerable performance improvements for the ranking matching KD methods including RRD [CIKM'20], DCD [CIKM'21]. We provide more detailed explanation and experiment results on our new paper: Distillation from Heterogeneous Models for Top-K Recommendation [WWW'23].
